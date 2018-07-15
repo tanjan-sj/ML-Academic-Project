@@ -101,6 +101,7 @@ for name in files:
 import pandas as pd
 import numpy as np
 
+
 df = pd.DataFrame({'texts':texts, 'authors':authors})
 #print(df.head())
 
@@ -108,7 +109,7 @@ from io import StringIO
 col = ['authors', 'texts']
 df = df[col]
 df = df[pd.notnull(df['texts'])]
-df.columns = ['authors', 'texts']
+df.columns = ['authors', 'texts ']
 df['category_id'] = df['authors'].factorize()[0]
 category_id_df = df[['authors', 'category_id']].drop_duplicates().sort_values('category_id')
 category_to_id = dict(category_id_df.values)
